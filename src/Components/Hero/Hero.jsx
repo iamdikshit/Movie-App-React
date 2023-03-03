@@ -97,16 +97,19 @@ const Hero = () => {
         </div>
         <div className="movie-section  ">
           {isLoading && <Loader />}
-          {!isLoading &&
-            movies.length !== 0 &&
-            movies.map((movie) => (
-              <Card
-                key={movie.id}
-                name={movie.title}
-                description={movie.description}
-                date={movie.date}
-              />
-            ))}
+          <div className="mt-24 flex flex-col gap-1 overflow-y-scroll">
+            {!isLoading &&
+              movies.length !== 0 &&
+              movies.map((movie) => (
+                <Card
+                  key={movie.id}
+                  name={movie.title}
+                  description={movie.description}
+                  date={movie.date}
+                />
+              ))}
+          </div>
+
           {!isLoading && movies.length === 0 && <NoDataFound />}
         </div>
       </div>
